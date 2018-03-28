@@ -1,3 +1,3 @@
-function operate() {
-
+function operate(operator, numbers) {
+  
 }

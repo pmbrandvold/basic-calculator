@@ -1,3 +1,3 @@
 function operate() {
-  add([1, 5, 7]);
+  console.log(add([1, 5, 7]));
 }

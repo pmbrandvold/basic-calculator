@@ -1,4 +1,4 @@
-var calculator = require ('./main.js');
+var calculator = require ('./scripts/mathFunctions.js');
 
 describe('add', function() {
 	it('adds 0 and 0', function() {

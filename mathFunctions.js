@@ -25,3 +25,10 @@ function divide(numbers) {
   }
   return quotient;
 }
+
+module.exports = {
+	add,
+	subtract,
+	multiply,
+	divide
+}

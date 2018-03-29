@@ -1,13 +1,34 @@
+const display = document.getElementById('display');
+let results;
+
 function operate(operator, firstNum, secNum) {
-  let answer;
   switch (operator) {
     case 'add':
-      return add([firstNum, secNum]);
+      results = add([firstNum, secNum]);
+      break;
     case 'subtract':
-      return subtract([firstNum, secNum]);
+      results = subtract([firstNum, secNum]);
+      break;
     case 'multiply':
-      return multiply([firstNum, secNum]);
+      results = multiply([firstNum, secNum]);
+      break;
     case 'divide':
-      return divide([firstNum, secNum]);
+      results = divide([firstNum, secNum]);
+      break;
   }
+  updateDisplay();
+}
+
+function updateDisplay() {
+  if (results === 0) {
+    display.innerHTML = '0';
+    display.classList = "cleared";
+  } else {
+    display.innerHTML = results;
+  }
+}
+
+function clear() {
+  results = 0;
+  updateDisplay();
 }

@@ -1,0 +1,21 @@
+#display {
+  border: 1px solid black;
+  height: 20px;
+  max-width: 400px;
+  text-align: center;
+  margin:auto;
+  margin-bottom: 2px;
+}
+
+#mainContainer {
+
+}
+
+#numPad {
+
+}
+
+.cleared {
+  color: gray;
+  background-color: lightgray;
+}

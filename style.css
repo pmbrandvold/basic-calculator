@@ -5,17 +5,36 @@
   text-align: center;
   margin:auto;
   margin-bottom: 2px;
+  padding: 4px;
 }
 
 #mainContainer {
+ display: block;
+ margin: auto;
+ max-width: 200px;
+}
 
+#operations {
+  display: flex;
+  justify-content: center;
 }
 
 #numPad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
 
+.numbers {
+  display: grid;
 }
 
 .cleared {
   color: gray;
   background-color: lightgray;
+}
+
+.operators {
+  padding: 2px;
+  margin: 5px;
 }

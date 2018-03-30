@@ -1,5 +1,6 @@
 const display = document.getElementById('display');
 let results;
+let numbersToOperate = [];
 
 function operate(operator, firstNum, secNum) {
   switch (operator) {
@@ -31,4 +32,13 @@ function updateDisplay() {
 function clear() {
   results = 0;
   updateDisplay();
+}
+
+const numbers = Array.from(document.getElementsByClassName('numbers'));
+numbers.forEach(number => number.addEventListener('click', function() {
+  recordNumberClick(number);
+}));
+
+function recordNumberClick(numberButton) {
+  numbersToOperate.push(Number(numberButton.innerHTML));
 }

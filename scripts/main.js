@@ -42,3 +42,10 @@ numbers.forEach(number => number.addEventListener('click', function() {
 function recordNumberClick(numberButton) {
   numbersToOperate.push(Number(numberButton.innerHTML));
 }
+
+const equalsButton = document.getElementById('equalsButton')
+equalsButton.addEventListener('click', function() {equals('add')});
+
+function equals(operation) {
+  operate(operation, numbersToOperate[0], numbersToOperate[1]);
+}

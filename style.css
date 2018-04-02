@@ -25,7 +25,12 @@
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
-.numbers {
+#clearButton {
+  padding: 2px;
+  margin: 5px;
+}
+
+.numbers #delButton #decimalButton {
   display: grid;
 }
 
@@ -35,6 +40,8 @@
 }
 
 .operators {
-  padding: 2px;
+  padding: auto;
   margin: 5px;
+  width: : 25px;
+  height: 20px;
 }

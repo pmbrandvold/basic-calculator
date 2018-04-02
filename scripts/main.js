@@ -1,7 +1,4 @@
-const display = document.getElementById('display');
 let results;
-let numbersToOperate = [];
-
 function operate(operator, firstNum, secNum) {
   switch (operator) {
     case 'add':
@@ -20,6 +17,7 @@ function operate(operator, firstNum, secNum) {
   updateDisplay(results);
 }
 
+const display = document.getElementById('display');
 function updateDisplay(currentDisplay) {
   if (results === 0) {
     display.innerHTML = '0';

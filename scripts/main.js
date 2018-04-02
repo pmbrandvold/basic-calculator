@@ -19,12 +19,7 @@ function operate(operator, firstNum, secNum) {
 
 const display = document.getElementById('display');
 function updateDisplay(currentDisplay) {
-  if (results === 0) {
-    display.innerHTML = '0';
-    display.classList = "cleared";
-  } else {
     display.innerHTML = currentDisplay;
-  }
 }
 
 function equals(operation) {
@@ -32,9 +27,12 @@ function equals(operation) {
   number = results;
 }
 
+const clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', clear);
 function clear() {
-  results = 0;
-  updateDisplay();
+  number = undefined;
+  number2 = undefined;
+  updateDisplay('0');
 }
 
 let number;
@@ -76,3 +74,20 @@ const operators = Array.from(document.getElementsByClassName('operators'));
 operators.forEach(operator => operator.addEventListener('click', function() {
   recordOperationClick(operator);
 }));
+function del() {
+  if (number2 !== undefined) {
+    number2 = undefined;
+    updateDisplay(number);
+  } else {
+    number = undefined;
+    updateDisplay('0');
+  }
+}
+const delButton = document.getElementById('delButton');
+delButton.addEventListener('click', del);
+
+function decimalNumber() {
+
+}
+const decimal = document.getElementById('decimalButton');
+decimal.addEventListener('click', decimalNumber);

@@ -1,3 +1,5 @@
+let secondNumberPopulate = false;
+
 let results;
 function operate(operator, firstNum, secNum) {
   switch (operator) {
@@ -23,38 +25,31 @@ function updateDisplay(currentDisplay) {
 }
 
 function equals(operation) {
-  operate(operation, number, number2);
-  number = results;
+  operate(operation, Number(firstSet.join('')), Number(secondSet.join('')));
+  firstSet = [results];
+  secondSet = [];
 }
 
 const clearButton = document.getElementById('clearButton');
 clearButton.addEventListener('click', clear);
 function clear() {
-  number = undefined;
-  number2 = undefined;
+  firstSet = [];
+  secondSet = [];
   updateDisplay('0');
 }
 
-let number;
-let number2;
+let firstSet = [];
+let secondSet = [];
 let operatorChoice;
-function recordNumberClick(numberButton) {
-  if (number !== undefined) {
-    number2 = Number(numberButton.innerHTML);
-    updateDisplay(number2);
-  } else {
-    number = Number(numberButton.innerHTML);
-    updateDisplay(number);
-  }
-}
-
-function recordOperationClick(operatorButton) {
-  operatorChoice = operatorButton.innerHTML;
-  updateDisplay(operatorChoice);
-}
 const numbers = Array.from(document.getElementsByClassName('numbers'));
 numbers.forEach(number => number.addEventListener('click', function() {
-  recordNumberClick(number);
+  if (secondNumberPopulate === false) {
+    firstSet.push(number.innerHTML)
+    updateDisplay(firstSet.join(''));
+  } else {
+    secondSet.push(number.innerHTML)
+    updateDisplay(secondSet.join(''));
+  }
 }));
 
 const equalsButton = document.getElementById('equalsButton')
@@ -72,22 +67,7 @@ equalsButton.addEventListener('click', function() {
 
 const operators = Array.from(document.getElementsByClassName('operators'));
 operators.forEach(operator => operator.addEventListener('click', function() {
-  recordOperationClick(operator);
+  secondNumberPopulate = true;
+  operatorChoice = operator.innerHTML;
+  updateDisplay(operatorChoice);
 }));
-function del() {
-  if (number2 !== undefined) {
-    number2 = undefined;
-    updateDisplay(number);
-  } else {
-    number = undefined;
-    updateDisplay('0');
-  }
-}
-const delButton = document.getElementById('delButton');
-delButton.addEventListener('click', del);
-
-function decimalNumber() {
-
-}
-const decimal = document.getElementById('decimalButton');
-decimal.addEventListener('click', decimalNumber);

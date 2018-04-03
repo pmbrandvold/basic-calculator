@@ -22,6 +22,7 @@ function operate(operator, firstNum, secNum) {
       results = divide(firstNum, secNum);
       break;
   }
+  operatorChoice = undefined;
   if (decimal.test(results.toString()) === true) {
     updateDisplay(results);
   } else {
@@ -102,6 +103,10 @@ equalsButton.addEventListener('click', function() {
 
 const operators = Array.from(document.getElementsByClassName('operators'));
 operators.forEach(operator => operator.addEventListener('click', function() {
+  if (operatorChoice !== undefined) {
+    alert('You already chose an operation');
+    return;
+  }
   secondNumberPopulate = true;
   operatorChoice = operator.innerHTML;
   updateDisplay(operatorChoice);

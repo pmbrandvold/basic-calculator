@@ -14,6 +14,11 @@ function operate(operator, firstNum, secNum) {
       results = multiply(firstNum, secNum);
       break;
     case 'divide':
+      if (secNum === 0) {
+        alert("What are you, trying to break the universe?!! You can't divide by 0!");
+        clear();
+        return;
+      }
       results = divide(firstNum, secNum);
       break;
   }
@@ -41,6 +46,7 @@ function clear() {
   firstSet = [];
   secondSet = [];
   secondNumberPopulate = false;
+  operatorChoice = undefined;
   updateDisplay('0');
 }
 
@@ -72,7 +78,7 @@ equalsButton.addEventListener('click', function() {
     alert('need a second number');
     return;
   }
-  
+
   if (operatorChoice === '*') {
     equals('multiply');
   } else if (operatorChoice === '/') {

@@ -32,17 +32,12 @@ html {
 }
 
 #clearButton {
-  padding: 2px;
+  padding: auto;
   margin: 5px;
 }
 
-.numbers #delButton #decimalButton {
+.numbers #delButton {
   display: grid;
-}
-
-.cleared {
-  color: gray;
-  background-color: lightgray;
 }
 
 .operators {

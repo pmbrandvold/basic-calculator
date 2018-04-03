@@ -1,4 +1,5 @@
 let secondNumberPopulate = false;
+const decimal = new RegExp('\.');
 
 let results;
 function operate(operator, firstNum, secNum) {
@@ -16,7 +17,11 @@ function operate(operator, firstNum, secNum) {
       results = divide(firstNum, secNum);
       break;
   }
-  updateDisplay(results);
+  if (decimal.test(results.toString()) == true) {
+    updateDisplay(results);
+  } else {
+    updateDisplay(results.toFixed(6));
+  }
 }
 
 const display = document.getElementById('display');
@@ -35,6 +40,7 @@ clearButton.addEventListener('click', clear);
 function clear() {
   firstSet = [];
   secondSet = [];
+  secondNumberPopulate = false;
   updateDisplay('0');
 }
 
@@ -54,6 +60,19 @@ numbers.forEach(number => number.addEventListener('click', function() {
 
 const equalsButton = document.getElementById('equalsButton')
 equalsButton.addEventListener('click', function() {
+  if (firstSet.length === 0) {
+    alert('need a number');
+    return;
+  }
+  if (operatorChoice === undefined) {
+    alert('not sure what to do with the numbers');
+    return;
+  }
+  if (secondSet.length === 0) {
+    alert('need a second number');
+    return;
+  }
+  
   if (operatorChoice === '*') {
     equals('multiply');
   } else if (operatorChoice === '/') {

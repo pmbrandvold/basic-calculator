@@ -3,46 +3,77 @@ html {
   margin: auto;
 }
 
+button {
+  width: 50px;
+  height: 25px;
+  margin: 2px;
+  border-radius: 8px;
+}
+
+#operations button {
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #display {
-  border: 1px solid black;
-  max-height: 20px;
-  max-width: 400px;
+  border: 2px solid black;
+  height: 50px;
+  max-width: 290px;
   text-align: center;
   margin:auto;
-  margin-bottom: 2px;
   padding: 4px;
+  font-size: 25px;
+  background-color: #EEE;
 }
 
 #mainContainer {
  display: block;
  margin: auto;
- max-width: 200px;
+ max-width: 300px;
  max-height: 100%;
+ border: 1px solid black;
+ border-top: none;
 }
 
 #operations {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 300px;
+  margin: auto;
 }
 
 #numPad {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+  max-width: 200px;
+  margin: auto;
+  padding-top: 25px;
+}
+
+#equalsButtonWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 200px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+#equalsButton {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 #clearButton {
-  padding: 2px;
   margin: 5px;
 }
 
 .numbers #delButton #decimalButton {
   display: grid;
-}
-
-.cleared {
-  color: gray;
-  background-color: lightgray;
 }
 
 .operators {

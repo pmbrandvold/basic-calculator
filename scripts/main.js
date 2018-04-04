@@ -96,3 +96,11 @@ operators.forEach(operator => operator.addEventListener('click', function() {
   operatorChoice = operator.innerHTML;
   updateDisplay(operatorChoice);
 }));
+
+let lastButtonClicked = null;
+document.addEventListener('click', (e) => {lastButtonClicked = e.target});
+
+delButton = document.getElementById('delButton');
+delButton.addEventListener('click', function() {
+  console.log(lastButtonClicked);
+});

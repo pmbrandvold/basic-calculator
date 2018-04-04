@@ -22,7 +22,8 @@ function operate(operator, firstNum, secNum) {
       results = divide(firstNum, secNum);
       break;
   }
-  if (decimal.test(results.toString()) == true) {
+  operatorChoice = undefined;
+  if (decimal.test(results.toString()) === true) {
     updateDisplay(results);
   } else {
     updateDisplay(results.toFixed(6));
@@ -56,11 +57,21 @@ let operatorChoice;
 const numbers = Array.from(document.getElementsByClassName('numbers'));
 numbers.forEach(number => number.addEventListener('click', function() {
   if (secondNumberPopulate === false) {
-    firstSet.push(number.innerHTML)
-    updateDisplay(firstSet.join(''));
+    if (number.id === "decimalButton" && firstSet.includes('.')) {
+      alert('You already have a decimal point');
+      return;
+    } else {
+      firstSet.push(number.innerHTML)
+      updateDisplay(firstSet.join(''));
+    }
   } else {
-    secondSet.push(number.innerHTML)
-    updateDisplay(secondSet.join(''));
+    if (number.id === "decimalButton" && secondSet.includes('.')) {
+      alert('You already have a decimal point');
+      return;
+    } else {
+      secondSet.push(number.innerHTML)
+      updateDisplay(secondSet.join(''));
+    }
   }
 }));
 
@@ -92,6 +103,10 @@ equalsButton.addEventListener('click', function() {
 
 const operators = Array.from(document.getElementsByClassName('operators'));
 operators.forEach(operator => operator.addEventListener('click', function() {
+  if (operatorChoice !== undefined) {
+    alert('You already chose an operation');
+    return;
+  }
   secondNumberPopulate = true;
   operatorChoice = operator.innerHTML;
   updateDisplay(operatorChoice);

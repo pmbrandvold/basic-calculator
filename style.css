@@ -72,7 +72,7 @@ button {
   margin: 5px;
 }
 
-.numbers #delButton #decimalButton {
+.numbers #delButton {
   display: grid;
 }
 

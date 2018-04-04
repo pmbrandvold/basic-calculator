@@ -4,8 +4,8 @@
     <link rel="stylesheet" type="text/css" href="./style.css"></link>
   </head>
   <body>
+    <div id="display">0</div>
     <div id="mainContainer">
-      <div id="display">0</div>
       <div id="operations">
         <button class="operators">+</button>
         <button class="operators">-</button>
@@ -27,7 +27,9 @@
         <button class="numbers">0</button>
         <button id="delButton">del</button>
       </div>
-      <button id="equalsButton">Enter</button>
+      <div id="equalsButtonWrapper">
+        <button id="equalsButton">Enter</button>
+      </div>
 
     </div>
     <script src="./scripts/mathFunctions.js"></script>

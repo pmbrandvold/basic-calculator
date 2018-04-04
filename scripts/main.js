@@ -111,3 +111,28 @@ operators.forEach(operator => operator.addEventListener('click', function() {
   operatorChoice = operator.innerHTML;
   updateDisplay(operatorChoice);
 }));
+
+let lastButtonClicked = null;
+document.addEventListener('click', (e) => {
+  if (e.target.id !== "delButton") {
+    lastButtonClicked = e.target
+  }
+});
+
+delButton = document.getElementById('delButton');
+delButton.addEventListener('click', function() {
+  deleteLastChoice(lastButtonClicked);
+});
+
+function deleteLastChoice(lastChoice) {
+  if (secondNumberPopulate === false && operatorChoice === undefined) {
+    firstSet.pop();
+    updateDisplay(firstSet.join(''));
+  } else if (secondNumberPopulate === true && operatorChoice !== undefined) {
+    secondSet.pop();
+    updateDisplay(secondSet.join(''));
+  } else if (lastChoice.innerHTML === operatorChoice) {
+    operatorChoice = undefined;
+    updateDisplay(firstSet.join(''));
+  }
+}

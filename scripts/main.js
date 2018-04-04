@@ -98,9 +98,26 @@ operators.forEach(operator => operator.addEventListener('click', function() {
 }));
 
 let lastButtonClicked = null;
-document.addEventListener('click', (e) => {lastButtonClicked = e.target});
+document.addEventListener('click', (e) => {
+  if (e.target.id !== "delButton") {
+    lastButtonClicked = e.target
+  }
+});
 
 delButton = document.getElementById('delButton');
 delButton.addEventListener('click', function() {
-  console.log(lastButtonClicked);
+  deleteLastChoice(lastButtonClicked);
 });
+
+function deleteLastChoice(lastChoice) {
+  if (secondNumberPopulate === false && operatorChoice === undefined) {
+    firstSet.pop();
+    updateDisplay(firstSet.join(''));
+  } else if (secondNumberPopulate === true && operatorChoice !== undefined) {
+    secondSet.pop();
+    updateDisplay(secondSet.join(''));
+  } else if (lastChoice.innerHTML === operatorChoice) {
+    operatorChoice = undefined;
+    updateDisplay(firstSet.join(''));
+  }
+}

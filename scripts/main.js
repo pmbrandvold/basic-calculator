@@ -65,6 +65,10 @@ numbers.forEach(number => number.addEventListener('click', function() {
       updateDisplay(firstSet.join(''));
     }
   } else {
+    if (operatorChoice === undefined) {
+      alert('Which operation do you want?');
+      return;
+    }
     if (number.id === "decimalButton" && secondSet.includes('.')) {
       alert('You already have a decimal point');
       return;
@@ -103,6 +107,10 @@ equalsButton.addEventListener('click', function() {
 
 const operators = Array.from(document.getElementsByClassName('operators'));
 operators.forEach(operator => operator.addEventListener('click', function() {
+  if (firstSet.length === 0) {
+    alert('Not sure how to ' + operator.innerHTML + ' with no numbers');
+    return;
+  }
   if (operatorChoice !== undefined) {
     alert('You already chose an operation');
     return;
@@ -128,11 +136,11 @@ function deleteLastChoice(lastChoice) {
   if (secondNumberPopulate === false && operatorChoice === undefined) {
     firstSet.pop();
     updateDisplay(firstSet.join(''));
-  } else if (secondNumberPopulate === true && operatorChoice !== undefined) {
-    secondSet.pop();
-    updateDisplay(secondSet.join(''));
   } else if (lastChoice.innerHTML === operatorChoice) {
     operatorChoice = undefined;
     updateDisplay(firstSet.join(''));
+  } else if (secondNumberPopulate === true && operatorChoice !== undefined) {
+    secondSet.pop();
+    updateDisplay(operatorChoice);//secondSet.join(''));
   }
 }

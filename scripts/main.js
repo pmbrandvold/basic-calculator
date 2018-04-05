@@ -32,7 +32,7 @@ function operate(operator, firstNum, secNum) {
 
 const display = document.getElementById('display');
 function updateDisplay(currentDisplay) {
-    display.innerHTML = currentDisplay;
+    display.firstChild.innerHTML = currentDisplay;
 }
 
 function equals(operation) {
